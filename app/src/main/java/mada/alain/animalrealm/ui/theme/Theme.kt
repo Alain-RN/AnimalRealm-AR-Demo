@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -14,7 +15,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.core.view.WindowCompat
+import mada.alain.animalrealm.R
+import java.time.format.TextStyle
 
 private val DarkColorScheme = darkColorScheme(
     primary = VertFeuille,
@@ -49,6 +54,20 @@ private val LightColorScheme = lightColorScheme(
     onSurface = Color(0xFF1C1B1F),
     */
 )
+val Montserrat = FontFamily(
+    Font(R.font.montserrat_medium)
+)
+val Raleway = FontFamily(
+    Font(R.font.raleway_medium)
+)
+val t = Typography(
+    titleLarge = androidx.compose.ui.text.TextStyle(
+        fontFamily = Montserrat
+    ),
+    bodyLarge = androidx.compose.ui.text.TextStyle(
+        fontFamily = Raleway
+    )
+)
 
 @Composable
 fun AnimalRealmTheme(
@@ -77,7 +96,7 @@ fun AnimalRealmTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        typography = Typography,
+        typography = t,
         content = content
     )
 }
